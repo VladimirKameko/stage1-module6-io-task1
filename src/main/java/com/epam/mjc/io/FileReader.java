@@ -7,11 +7,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class FileReader {
 
+	private static Logger log = Logger.getLogger(FileReader.class.getName());
+
 	public Profile getDataFromFile(File file) {
+
 
 		try (InputStream inputStream = new FileInputStream(file)) {
 
@@ -33,9 +38,8 @@ public class FileReader {
 			return new Profile(ls.get(0), Integer.parseInt(ls.get(1)), ls.get(2), Long.parseLong(ls.get(3)));
 
 
-		} catch (
-				IOException e) {
-			System.err.println(e.getMessage());
+		} catch (IOException e) {
+			log.log(Level.SEVERE,"Exception:" + e);
 		}
 		return new Profile();
 
