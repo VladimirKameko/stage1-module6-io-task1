@@ -6,9 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class FileReader {
@@ -28,10 +26,8 @@ public class FileReader {
 			String res = sb.toString();
 			res = res.trim();
 			String[] arr = res.split("\\n");
-			int counter = 0;
 			for (String str : arr) {
 				ls.add(str.substring(str.indexOf(":") + 1).trim());
-				System.out.println(ls);
 			}
 
 			return new Profile(ls.get(0), Integer.parseInt(ls.get(1)), ls.get(2), Long.parseLong(ls.get(3)));
