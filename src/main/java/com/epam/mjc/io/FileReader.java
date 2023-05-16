@@ -39,7 +39,7 @@ public class FileReader {
 
 
 		} catch (IOException e) {
-			log.log(Level.SEVERE,"Exception:" + e);
+			log.log(Level.SEVERE, e.getMessage());
 		}
 		return new Profile();
 
